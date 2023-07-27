@@ -112,7 +112,7 @@ public class DogsHandlerTest {
         assertNull(myDog);
     }
     @Test
-    public void updateDogDetails(){
+    public void updateDogDetails() {
         DogHandler cut = new DogHandler(itsDogRepo);
         Dog theDog = new Dog();
         theDog.setName("Paul");
@@ -124,9 +124,31 @@ public class DogsHandlerTest {
         myDog.setName("Azorel");
         long id = cut.updateDetails(myDog);
 
+        assertEquals(id, myDog.getId());
+    }
+        @Test
+        public void removeDog() {
+
+            DogHandler cut = new DogHandler(itsDogRepo);
+            Dog theDog = new Dog();
+            theDog.setName("Paul");
+            cut.addDog(theDog);
+            Dog secondDog = new Dog();
+            secondDog.setName("Cristi");
+            long id = cut.addDog(secondDog);
+
+            boolean check = cut.removeDog(id);
+
+            assertEquals(check,true);
+
+        }
+
+
+
+
+
     }
 
 
 
 
-}

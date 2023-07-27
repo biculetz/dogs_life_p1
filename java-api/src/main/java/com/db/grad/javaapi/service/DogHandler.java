@@ -36,4 +36,11 @@ public class DogHandler {
         return itsDogsRepo.save(dog);
     }
 
+    public boolean removeDog(long id){
+        Dog ana = itsDogsRepo.findById(id);
+
+        return itsDogsRepo.delete(ana);
+    }
+
+
 }
