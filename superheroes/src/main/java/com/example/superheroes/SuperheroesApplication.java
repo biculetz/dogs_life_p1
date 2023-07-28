@@ -14,7 +14,7 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 @SpringBootApplication
-public class SuperheroesApplication implements CommandLineRunner {
+public class SuperheroesApplication{
 
 	@Autowired
 	Calculator calc;
@@ -53,26 +53,26 @@ public class SuperheroesApplication implements CommandLineRunner {
 //		}
 //	}
 
-	//Using service
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("Test 1: print hero starting with C");
-		List<Hero> heroes = heroService.getHeroesStartingWithLetter("C");
-		for (Hero hero:heroes){
-			System.out.println(hero);
-		}
-
-		System.out.println("Test 2: print all heroes");
-		List<Hero> heroes2 = heroService.getAllHeroes();
-		for (Hero hero:heroes2){
-			System.out.println(hero);
-		}
-
-		System.out.println("Test 3: print the last 3 heroes");
-		List<Hero> heroes3 = heroService.getLastThreeHeroesByName();
-		for (Hero hero:heroes3){
-			System.out.println(hero);
-		}
-	}
+//	//Using service
+//	@Override
+//	public void run(String... args) throws Exception {
+//		System.out.println("Test 1: print hero starting with C");
+//		List<Hero> heroes = heroService.getHeroesStartingWithLetter("C");
+//		for (Hero hero:heroes){
+//			System.out.println(hero);
+//		}
+//
+//		System.out.println("Test 2: print all heroes");
+//		List<Hero> heroes2 = heroService.getAllHeroes();
+//		for (Hero hero:heroes2){
+//			System.out.println(hero);
+//		}
+//
+//		System.out.println("Test 3: print the last 3 heroes");
+//		List<Hero> heroes3 = heroService.getLastThreeHeroesByName();
+//		for (Hero hero:heroes3){
+//			System.out.println(hero);
+//		}
+//	}
 
 }
