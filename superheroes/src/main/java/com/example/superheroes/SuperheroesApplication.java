@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SuperheroesApplication implements CommandLineRunner {
 
 	@Autowired
-	Calculator calc = new Calculator();
+	// Calculator calc = new Calculator();
 
 	public static void main(String[] args) {
 		SpringApplication.run(SuperheroesApplication.class, args);
@@ -19,6 +19,7 @@ public class SuperheroesApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hello World");
-		System.out.println(calc.addition(10,5));
+		// System.out.println(calc.addition(10,5));
+
 	}
 }
