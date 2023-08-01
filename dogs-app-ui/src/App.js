@@ -27,7 +27,8 @@ function App() {
       </Navbar>
       <Routes>
         <Route path="/all" element={AllDogs} />
-        <Route path="/number" element={NumberOfDogs} />
+        <Route path="/number" element={<NumberOfDogs/>} />
+      
       </Routes>
     </>
   );
