@@ -2,20 +2,19 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button'
+import { saveHero } from '../services/hero-service';
 
 const HeroForm = () => {
 
-
-
   const [alias, setAlias] = useState('');
   const [name, setName] = useState('');
-  const [ability, setAbility] = useState('');
+  const [superpower, setAbility] = useState('');
   const [teamID, setTeamID] = useState(0);
 
   let hero = {};
   hero.alias = alias;
   hero.name = name;
-  hero.ability = ability;
+  hero.superpower = superpower;
   hero.teamID = teamID;
 
   const handleAliasChange = (event) => {
@@ -34,15 +33,24 @@ const HeroForm = () => {
     setTeamID(event.target.value)
   }
 
-const handleSubmit =(event)=>{
-  event.preventDefault();
-  let hero = {};
-  hero.alias = alias;
-  hero.name = name;
-  hero.ability = ability;
-  hero.teamID = teamID;
-  console.log(hero);
-}
+  const handleSubmit =(event)=>{
+    event.preventDefault();
+    let hero = {};
+    hero.alias = alias;
+    hero.name = name;
+    hero.superpower = superpower;
+    hero.teamID = teamID;
+    saveHero(hero)
+      .then(res => {
+         setAbility('');
+         setAlias('');
+         setName('');
+         setTeamID(0)
+         })
+       .catch(err=>{
+          console.log(err);
+         })   
+   }
 
 
   return (
@@ -58,9 +66,9 @@ const handleSubmit =(event)=>{
           <Form.Control type="text" placeholder="Hero name" value={name}
             onChange={handleNameChange} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="ability">
+        <Form.Group className="mb-3" controlId="superpower">
           <Form.Label>Hero Ability: </Form.Label>
-          <Form.Control type="text" placeholder="Hero ability" value={ability}
+          <Form.Control type="text" placeholder="Hero ability" value={superpower}
             onChange={handleAbilityChange} />
         </Form.Group>
         <Form.Select aria-label="Team ID" value={teamID}
