@@ -7,4 +7,3 @@ export function getAllDogs(){
 export function getNumberOfDogs(){
     return http.get("/number");
 }
-

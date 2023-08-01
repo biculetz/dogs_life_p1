@@ -18,7 +18,7 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">All Dogs</Nav.Link>
+              <Nav.Link href="all">All Dogs</Nav.Link>
               <Nav.Link href="#link">Number Of Dogs</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -26,9 +26,9 @@ function App() {
         </Container>
       </Navbar>
       <Routes>
-        <Route path="/all" element={AllDogs} />
+        <Route path="/all" element={<AllDogs/>} />
         <Route path="/number" element={<NumberOfDogs/>} />
-      
+
       </Routes>
     </>
   );
