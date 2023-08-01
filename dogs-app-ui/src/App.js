@@ -28,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/all" element={<AllDogs/>} />
         <Route path="/number" element={<NumberOfDogs/>} />
+
       </Routes>
     </>
   );
